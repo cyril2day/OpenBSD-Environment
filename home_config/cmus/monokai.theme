@@ -1,0 +1,63 @@
+############################################################
+# palette: (almost)
+# http://www.colourlovers.com/palette/1718713/Monokai
+#
+# converted to xterm256 code with:
+# https://gist.github.com/MicahElliott/719710
+############################################################
+# LIGHT_CLAY    233
+# CLAY          232
+# PINK          197
+# BLUE          81
+# GREEN         82
+# ORANGE        208
+############################################################
+set color_win_fg=81
+
+# overall background color
+set color_win_bg=232
+
+############################################################
+# bottom status line
+set color_statusline_fg=82
+set color_statusline_bg=233
+
+# bottom title line
+set color_titleline_fg=82
+set color_titleline_bg=233
+
+# top title area
+set color_win_title_fg=82
+set color_win_title_bg=233
+
+# command-line colors
+set color_cmdline_bg=232
+set color_cmdline_fg=208
+set color_error=208
+set color_info=81
+set color_separator=197
+
+##### file browser view colors #############################
+# directory listing color
+set color_win_dir=197
+
+##### playing file colors ##################################
+# unselected currently playing track's text
+set color_win_cur=197
+
+# active selection for currently playing track
+set color_win_cur_sel_bg=197
+set color_win_cur_sel_fg=232
+
+# inactive selection for currently playing track
+set color_win_inactive_cur_sel_bg=208
+set color_win_inactive_cur_sel_fg=232
+
+##### non-playing file colors ##############################
+# active selection
+set color_win_sel_bg=81
+set color_win_sel_fg=232
+
+# inactive selection
+set color_win_inactive_sel_bg=82
+set color_win_inactive_sel_fg=232

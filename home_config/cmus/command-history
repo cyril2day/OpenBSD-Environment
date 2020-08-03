@@ -1,0 +1,49 @@
+save -p Reflections
+format_playlist
+load -p Dope
+load -p songs
+load -p Reflections
+update-cache
+refresh
+!ls
+clear
+clear songs
+clear -p songs
+create -p Reflections
+new -p Reflections
+filter 
+new
+create
+new Reflections
+q
+filter FDD
+colorscheme monokai
+colorscheme zenburn
+colorscheme tomorrow
+colorscheme gruvbox-redux
+colorscheme itunes-like
+colorscheme octa256
+colorscheme groove
+colorscheme gruvbox-dark
+colorscheme tommorrow
+3
+clear cache
+clear -l
+delete
+bind -f browser backspace browser-up
+pl-create songs
+pl-create New Songs
+pl-create "New Songs"
+pl-create mellow
+pl-create samp
+create-pl samp
+pl-create ~/Music/samp.pls
+pl-create
+add ~/Music/samp.pls
+:add ~/Music/samp.pls
+a ~/Music/samp.pls
+add lp
+add
+load -p /home/psi/Music/
+load -p psi
+ls

@@ -1,0 +1,33 @@
+{
+  "html.autoClosingTags": true,
+  "html.format.enable": true,
+  "html.filetypes": ["html", "vue"],
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "html",
+    "javascript",
+    "json",
+    "vue",
+    "typescript",
+    "php"
+  ],
+  "eslint.filetypes": ["javascript", "typescript", "typescript.tsx", "vue"],
+  "eslint.enable": true,
+  "vetur.format.enable": true,
+  "vetur.validation.style": false,
+  "vetur.validation.script": false,
+  "vetur.validation.template": false,
+  "suggest.maxCompleteItemCount": 35,
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "pairs.disableLanguages":["html"],
+  "yank.enableCompletion":false,
+  "typescript.validate.enable": true, 
+  "tsserver.formatOnType": true,
+  "tsserver.enableJavascript": true,
+  "tsserver.log": "verbose",
+  "tsserver.trace.server": "verbose"
+}
