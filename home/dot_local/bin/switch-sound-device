@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# Copyright (c) 2020: psi <cy.lonsido@gmail.com>
+# OS: OpenBSD amd64
+# Session: xfce4-session
+# WM: i3
+#
+# This script toggles audio devices recognized 
+# by sndiod(8) using the custom flag:
+# rcctl set sndiod -f rsnd/0 -F rsnd/1 -m play
+#
+# The "-m play" flag is necessary for some devices
+# such as mine because sndioctl(1) might not switch
+# properly.  
+# 
+# Reload the server to force sndiod to switch 
+# between devices:
+# rcctl reload sndiod
+
+DEFAULT_DEVICE="$(sndioctl server.device | \
+                  awk -F '[^0-9]+' '{ printf("%d", $2) }')"
+
+if [ "$DEFAULT_DEVICE" -eq 0 ]; then
+  sndioctl server.device=1
+else
+  sndioctl server.device=0
+fi

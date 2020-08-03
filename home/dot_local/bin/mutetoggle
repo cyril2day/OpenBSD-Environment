@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Copyright (c) 2020: psi <cy.lonsido@gmail.com>
+# OS: OpenBSD amd64
+# Session: xfce4-session
+# WM: i3
+#
+# This script is for toggling audio muting on top of
+# the sndio(7) interface.
+#
+# Current volume is saved to a file (".currentvol")
+# in user's $HOME. It is then retrieved later when
+# the audio is toggled back.
+
+
+export HOME=$HOME
+
+VOL_FILE="$HOME/.currentvol"
+SAVED_VOL="$( cat "$VOL_FILE" )"
+CURRENT_VOL="$( sndioctl output.level | awk -F '[^0-9]+' '{printf("%d", $3)}' )"
+RESTORE_VOL="0.$SAVED_VOL"
+
+
+if [ "$CURRENT_VOL" -gt 0 ];then
+  sndioctl output.level | awk -F '[^0-9]+' '{print $3}' | cat > "$VOL_FILE"
+  sndioctl output.level=0
+else
+  sndioctl output.level="$RESTORE_VOL"
+fi

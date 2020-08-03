@@ -1,0 +1,6 @@
+#!/bin/sh
+# control cmus-remote(1) with any ssh client. This is actually an 
+# alias to avoid typing long commands in the shell.
+# synonymous to: `cmus-remote --server [server socket] arg1 arg2 arg3(optional)`
+
+cmus-remote --server /var/run/user/1000/cmus-socket "$1" "$2" "$3"

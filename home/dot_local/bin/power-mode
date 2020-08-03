@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# Copyright (c) 2017-2020: psi <cy.lonsido@gmail.com>
+# OS: OpenBSD amd64
+# Session: xfce4-session
+# WM: i3
+# 
+# Toggles apm(8) to Automatic or Manual performance adjustment mode.
+# 
+# Requires: xfce4-notifyd
+
+# notify-send [title] [message] [options]
+
+NOTIFY_MANUAL_TITLE='APM: Manual'
+NOTIFY_MANUAL_MESSAGE='Switched to manual performance adjustment mode.'
+
+NOTIFY_AUTO_TITLE='APM: Auto'
+NOTIFY_AUTO_MESSAGE='Switched to automatic performance adjustment mode.'
+
+IF_AUTO="$(apm | grep "auto" | wc -c)"
+
+if [ "$IF_AUTO" -ne 0 ];then
+	apm -H 
+  notify-send "$NOTIFY_MANUAL_TITLE" "$NOTIFY_MANUAL_MESSAGE" \
+    -i emblem-ok
+else
+	apm -A 
+  notify-send "$NOTIFY_AUTO_TITLE" "$NOTIFY_AUTO_MESSAGE" \
+    -i emblem-ok
+fi
