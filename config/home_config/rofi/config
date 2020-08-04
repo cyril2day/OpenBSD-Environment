@@ -1,0 +1,3 @@
+# Choose your desired theme at /usr/local/share/rofi/themes
+
+rofi.theme: /usr/local/share/rofi/themes/glue_pro_blue.rasi

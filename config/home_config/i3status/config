@@ -1,0 +1,67 @@
+# Copyright (c) 2019: psi <cy.lonsido@gmail.com>
+# OS: OpenBSD amd64
+# Session: xfce4-session
+# WM: i3
+#
+# Custom display and arrangement of i3status information.
+# This is being called inside i3wm config located at
+# $HOME/.config/i3/config
+#
+# Please be reminded that configuration herein is unique to OpenBSD.
+
+general {
+	colors = true
+	interval = 5
+	output_format = i3bar
+	color_good = "#E5DFC5"
+	color_degraded = "#B48375"
+	color_bad = "#A92F41"
+}
+
+# display information in the order specified
+order += "disk /"
+order += "disk /home"
+order += "ethernet trunk0"
+order += "cpu_usage"
+order += "volume master"
+order += "battery 0"
+order += "tztime local"
+
+
+# this is a virtual interface that aggregates multiple link interfaces.
+# e.g when ethernet isn't available, wireless failover device will be used.
+# Either way, both are treated as one interface called trunk0.
+ethernet trunk0 {
+	format_up = " LAN: %ip "
+}
+
+# battery information. Warns below 20%
+battery 0 {
+	format = " Power: %status %percentage %remaining "
+	path = "/sys/class/power_supply/BAT0/uevent"
+	low_threshold = 20
+}
+
+# output: `Date: mm/dd/yy Mon, Time: 00:00 AM`
+tztime local {
+	format = " Date: %m/%d/%y %a, Time: %I:%M %p "
+}
+
+cpu_usage {
+	format = " CPU: %usage "
+}
+
+disk "/" {
+  # display root partition remaining in percentage
+	format = " Root: %free (%percentage_free free) "
+}
+
+disk "/home" {
+  # display home partition remaining in percentage
+	format = " Home: %free (%percentage_free free) "
+}
+
+volume master {
+  # this is the only option that works in all *BSD
+	format = " Vol: %volume "
+}

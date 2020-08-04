@@ -1,0 +1,251 @@
+# Copyright (c) 2019: psi <cy.lonsido@gmail.com>
+# OS: OpenBSD amd64
+# Session: xfce4-session
+# WM: i3
+#
+#
+# Expressed in this config file are personal preferences.
+# Please set aside time to read and figure out what each line does.
+# Otherwise, feel free to generate your own i3 config.
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Hermit 9
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal within tmux
+bindsym $mod+Return workspace 2; exec st -f "SF Mono:Regular:pixelsize=12:antialias=true:autohint=true" -e tmux
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start rofi (a program launcher)
+# install via: pkg_add -v rofi
+bindsym $mod+d exec --no-startup-id rofi -show run
+
+# change focus 
+# vim bindings were emulated
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+Ctrl+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+q layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit session, invoking xfce4 session menu
+bindsym $mod+Shift+e exec xfce4-session-logout
+
+# change wallpaper randomly
+bindsym $mod+b exec feh --no-fehbg --bg-fill --randomize --recursive /usr/local/share/backgrounds/*
+
+# launch a Chrome browser under a proxy
+# bindsym $mod+Shift+i exec "chrome --proxy-server='localhost:8081' --proxy-bypass-list='neobux.com;localhost:8000;127.0.0.1:8000;192.168.1.1:80;localhost:8069'"
+
+# launch a Chrome browser normally
+bindsym $mod+Shift+i workspace 1; exec "chrome --no-first-run --temp-profile --enable-unveil"
+
+# screenshooter
+bindsym Print exec scrot -d 2 /home/psi/Pictures/%Y-%m-%d-%T-screenshot.png
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+        # bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+# start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+bar {
+  status_command i3status
+	position bottom
+	font pango: Hermit 8
+	colors {
+	      background #000000
+	      statusline #E5DFC5 #that neon blue
+	      separator #E5DFC5
+	
+		    focused_workspace  #252120 #E5DFC5 #252120
+    		active_workspace   #252120 #252120 #FFFFFF
+    		inactive_workspace #252120 #252120 #B48375
+    		urgent_workspace   #252120 #A92F41 #E5DFC5
+    		binding_mode       #252120 #A92F41 #E5DFC5
+    	}
+}
+
+# default startup wallpaper: Adwaita Night of Gnome themes
+exec feh --no-fehbg --bg-fill --randomize --recursive /usr/local/share/backgrounds/gnome/adwaita-night.jpg
+
+# start redshift headless
+exec redshift
+
+# enable numlock after login
+exec numlockx on
+
+# extra touch of aesthetics using preferred compositor
+# exec compton --config /home/psi/.config/compton/compton.conf
+exec compton --config $HOME/.config/compton/compton.conf
+
+
+# theme colors, this is a personal preference
+client.focused          #c6c6c6 #1f1f1f #c6c6c6 #8abeb7 #8abeb7
+client.focused_inactive #c6c6c6 #1f1f1f #c6c6c6 #8abeb7 #8abeb7
+client.unfocused        #c6c6c6 #1f1f1f #c6c6c6 #8abeb7 #8abeb7
+client.urgent           #c6c6c6 #1f1f1f #c6c6c6 #8abeb7 #8abeb7
+client.placeholder      #c6c6c6 #1f1f1f #c6c6c6 #8abeb7 #8abeb7
+client.background       #1f1f1f
+
+
+# set an alias for xflock4
+set $Locker /usr/local/bin/xflock4 && sleep 1
+
+# alternative session menu when not using xfce4-session
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    # bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym l exec --no-startup-id xset dpms force off, mode "default" #switch off display
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && apm -z, mode "default"
+    bindsym h exec --no-startup-id $Locker && apm -Z, mode "default"
+    bindsym r exec --no-startup-id doas reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id doas shutdown -p now, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+f mode "$mode_system"
+
+# Multimedia 
+# binding cmus-remote(1) commands to multimedia keys
+bindsym XF86AudioNext exec "cmus-remote -n"
+bindsym XF86AudioPrev exec "cmus-remote -r"
+bindsym XF86AudioPlay exec "cmus-remote -u"
+bindsym XF86AudioPause exec "cmus-remote -u"
+# below are custom shell script executables specific to OpenBSD's sndio
+bindsym XF86AudioRaiseVolume exec "raisevolume"
+bindsym XF86AudioLowerVolume exec "lowervolume"
+bindsym XF86AudioMute exec "mutetoggle"
+
+# Below are custom scripts written in shell following Posix standards.
+# unmount USB devices
+bindsym $mod+Shift+u exec "ejectusb"
+
+# launch file-manager on window 3
+bindsym $mod+Ctrl+f workspace 3; exec "exo-open --launch FileManager"
+
+# clear Trash files
+bindsym $mod+Shift+t exec "cleartrash"
+
+# move core files in home folder to trash
+bindsym $mod+c exec "delete-home-core-files"
+
+# toggle APM mode adjustent
+bindsym $mod+Shift+p exec "power-mode"
+
+# show core files in home
+bindsym $mod+Ctrl+c exec "display-core-files"
+
+# emulate PageUp and PageDown keys 
+bindsym --release $mod+n exec --no-startup-id xdotool key --clearmodifiers Next
+bindsym --release $mod+p exec --no-startup-id xdotool key --clearmodifiers Prior
+
+# toggle between built-in sound device and external (USB) device
+bindsym $mod+Ctrl+a exec "switch-sound-device"
