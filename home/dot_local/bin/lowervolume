@@ -1,3 +1,0 @@
-#!/bin/sh
-
-sndioctl output.level=-0.03
