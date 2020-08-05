@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Copyright (c) 2017-2020: psi <cy.lonsido@gmail.com>
+# OS: OpenBSD amd64
+# Session: xfce4-session
+# WM: i3
+#
+# Switch off display for user whose $DISPLAY env is :0
+
+xset dpms force off -display :0
