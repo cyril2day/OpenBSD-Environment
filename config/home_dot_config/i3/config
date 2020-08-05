@@ -198,8 +198,8 @@ set $Locker /usr/local/bin/xflock4 && sleep 1
 # alternative session menu when not using xfce4-session
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    # bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym l exec --no-startup-id xset dpms force off, mode "default" #switch off display
+    # 1st command switches off display
+    bindsym l exec --no-startup-id screenoff, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id $Locker && apm -z, mode "default"
     bindsym h exec --no-startup-id $Locker && apm -Z, mode "default"
