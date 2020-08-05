@@ -26,6 +26,16 @@ Some scripts are specific to the said OS. Aesthetics, however, may be reproducib
   - `San Francisco Pro Ultralight` or `Segoe UI` as default
   - `San Francisco Mono Regular` as default monospace
 
+## Before you start
+
+Your might encounter trouble on the first attempt. When `xfce-session` initializes, it will always try to start `xfce4-panel`.
+Unless you build `xfce-session` yourself, the panel is already included in the meta package if you install via `pkg_add`.
+
+As a workaround, navigate to Xfce settings manager and create a session wherein the value of `xfce4-panel`'s _Restart Style_ is _Never_.
+If you can see the panel in the Application Autostart, disable or remove it from the entry. Changes will take effect on next login.
+
+You can use my config in `$HOME/.config/xfce4` & `$HOME/.config/autostart` and you should be fine.
+
 ## Copyright and license
 
 Copyright 2020 psi <cy.lonsido@gmail.com>. Code is released under [the MIT License](https://github.com/cyril2day/OpenBSD-Environment/blob/master/LICENSE)
