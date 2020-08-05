@@ -23,6 +23,8 @@ Some scripts are specific to the said OS. Aesthetics, however, may be reproducib
 - Fonts:
   - various fonts imported from `Mac & Windows`
   - `Hermit` for title & status bars
+  - `San Francisco Pro Ultralight` or `Segoe UI` as default
+  - `San Francisco Mono Regular` as default monospace
 
 ## Copyright and license
 
