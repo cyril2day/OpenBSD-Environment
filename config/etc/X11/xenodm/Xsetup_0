@@ -1,0 +1,20 @@
+#!/bin/sh
+# $OpenBSD: Xsetup_0,v 1.8 2020/07/04 13:32:50 matthieu Exp $
+
+# xsetroot -fg \#6f6f6f -bg \#282828 -bitmap /usr/X11R6/include/X11/bitmaps/root_weave
+
+# xconsole -geometry 480x130-0-0 -daemon -notify -verbose -fn fixed -exitOnFail
+
+#  install package openbsd-backgrounds
+#  then uncomment:
+#
+# if test -x /usr/local/bin/openbsd-wallpaper
+# then
+# 	/usr/local/bin/openbsd-wallpaper
+# fi
+
+# sxpm OpenBSD.xpm &
+
+# requires pkg_add terminus-font
+xset fp+ /usr/local/share/fonts/terminus &
+xsetroot -solid black &

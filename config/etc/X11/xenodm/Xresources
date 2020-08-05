@@ -1,0 +1,27 @@
+! $OpenBSD: Xresources.in,v 1.3 2020/06/28 15:38:34 matthieu Exp $
+!
+!
+!
+!
+!
+xlogin.Login.echoPasswd:       true
+xlogin.Login.fail:             fail
+xlogin.Login.greeting:
+xlogin.Login.namePrompt:       \040login\040
+xlogin.Login.passwdPrompt:     password\040
+
+xlogin.Login.height:           220
+xlogin.Login.width:            500
+xlogin.Login.y:                220
+xlogin.Login.frameWidth:       0
+xlogin.Login.innerFramesWidth: 0
+
+xlogin.Login.background:       black
+xlogin.Login.foreground:       #eeeeee
+xlogin.Login.failColor:        white
+xlogin.Login.inpColor:         black
+xlogin.Login.promptColor:      #eeeeec
+
+xlogin.Login.face:             hermit-24
+xlogin.Login.failFace:         hermit-24
+xlogin.Login.promptFace:       hermit-24
