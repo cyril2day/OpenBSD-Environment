@@ -1,0 +1,49 @@
+#!/bin/sh
+
+DEVCLASS=$1
+DEVNAME=$2
+MOUNTROOT="/home/psi/USB"
+DEBUG=0
+NAMEOFDISK=`/sbin/sysctl -n hw.disknames 2>&1 | sed -e 's/[,=]/\ /g'`
+umount -f $MOUNTROOT/* && rm -rf $MOUNTROOT/*
+
+case $DEVCLASS in
+2)
+	# disk devices
+	disklabel=`/sbin/disklabel $DEVNAME 2>&1 | \
+	sed -n '/^disk: /s/^disk: //p'`
+	[ $DEBUG == 1 ] && logger -i "hotplugd descovered DISKLABEL $disklabel"
+	case $disklabel in
+	"SCSI disk")
+		slices=`/sbin/disklabel $DEVNAME 2>&1 | \
+		sed -n '/^ *[abd-z]: /s/^ *\([abd-z]\):.*/\1/p'`
+		
+		for slice in ${slices}; do
+			[ $DEBUG == 1 ] && logger -i "hotplugd attaching SLICE $slice of DEVICE $DEVNAME"
+			
+			for dname in ${NAMEOFDISK}; do
+				#echo $dname | cut -c 5-
+
+				if [ $dname != 'sd0:88ae7bb778fbc51a' -a $dname != 'sd1:f80f2e3ce5449068' -a $dname != 'cd0:' ]; then
+
+					[ ! -d $MOUNTROOT/$DEVNAME$slice ] && mkdir -p -m 1777 $MOUNTROOT/$DEVNAME$slice
+					chown -R psi:psi $MOUNTROOT/$DEVNAME$slice
+					# mount.exfat /dev/$DEVNAME$slice $MOUNTROOT/$DEVNAME$slice
+
+					while fsck -y /dev/$DEVNAME$slice == true ; do
+						sleep 1
+					done
+
+					mount /dev/$DEVNAME$slice $MOUNTROOT/$DEVNAME$slice 
+				fi	
+			done
+			
+		done
+		;;
+	esac
+	;;
+3)
+	# network devices; requires hostname.$DEVNAME
+	sh /etc/netstart $DEVNAME
+	;;
+esac

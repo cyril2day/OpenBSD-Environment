@@ -1,0 +1,12 @@
+apmd_flags=-A -z 21
+ftpd_flags=
+hotplugd_flags=
+httpd_flags=
+ntpd_flags=
+pkg_scripts=messagebus mysqld php73_fpm
+smtpd_flags=NO
+xenodm_flags=
+
+# sets an external soundcard (usb) as default device
+# upon boot. Fallback to built-in soundcard otherwise.
+sndiod_flags=-f rsnd/1 -m play -F rsnd/0 -w off

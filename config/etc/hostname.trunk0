@@ -1,0 +1,14 @@
+# Please read OpenBSD FAQ on networking for more details.
+#
+# This is an example config for a laptop with a wired re0 interface
+# and a wireless iwm0 interface.
+#
+# trunk(4) aggretates these interfaces into one. DHCP then automatically
+# assigns IP addresses.
+
+trunkproto failover trunkport re0
+# uncomment trunkport if you want to teether internet connection with an android phone
+# trunkport urndis0 
+trunkport iwm0
+dhcp
+inet6 autoconf

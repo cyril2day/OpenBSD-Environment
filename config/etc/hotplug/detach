@@ -1,0 +1,4 @@
+#!/bin/sh
+
+umount -f /home/psi/USB/*
+rm -rf /home/psi/USB/*

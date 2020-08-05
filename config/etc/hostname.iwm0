@@ -1,0 +1,15 @@
+# Please read OpenBSD FAQ on networking for more details.
+#
+# A straightforward example be like:
+# nwid <SSID> wpakey <password> wpaprotos wpa2
+#
+# For multiple access points just add:
+# join <SSID> wpakey <password> wpaprotos wpa2
+
+
+# Add your config below. Don't delete the `up` if you'll 
+# assume my dhcp configuration using trunk(4).
+
+
+
+up
