@@ -1,3 +1,5 @@
+#### System configuration files:
+
 - apm
 
   - [suspend](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/apm/suspend)
@@ -26,11 +28,24 @@
   \- configure so that normal users can run commands with elevated privileges. This is a `sudo` equivalent.
 
 - [fstab](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/fstab)
-  \- add `softupdates` and `noatime` options for local partitions to improve disk performance. Good for laptops.
+  \- add `softdep` and `noatime` options for local partitions to improve disk performance. Good for laptops.
 
 - [hosts](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/hosts)
   \- I find it useful to explicitly state the IP address of my chosen `installurl`. Without it, for unknown
   reason, installs in `pkg_add` tend to timeout a lot. I might be wrong, of course.
+
+- [login.conf](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/login.conf)
+  \- under the file's `staff` login class, we'll increase resource limits for a smoother experience on running
+  modern applications like `Chromium`.
+
+- [rc.conf.local](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/rc.conf.local)
+  \- run system daemons you need. You can ignore this file and create your own.
+
+- [sysctl.conf](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/sysctl.conf)
+  \- set some kernel state for desktop use. My laptop has 16GB of RAM, so scale values accordingly.
+
+- [wsconsctl.conf](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/wsconsctl.conf)
+  \- set brightness and disable been when logged into the virtual console.
 
 #### If you want to aggregate multiple network interfaces under trunk(4):
 
@@ -45,3 +60,9 @@
 
 4. [hostname.urndis0](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/hostname.urndis0)
    \- create only if you are teethering with an Android phone.
+
+#### Optional configs:
+
+- [php-7.3.ini](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/php-7.3.ini)
+
+- [php-fpm.conf](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/php-fpm.conf)
