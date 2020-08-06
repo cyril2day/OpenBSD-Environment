@@ -28,8 +28,9 @@ Some scripts are specific to the said OS. Aesthetics, however, may be reproducib
 
 ## Before you start
 
-Your might encounter trouble on the first attempt. When `xfce-session` initializes, it will always try to start `xfce4-panel`.
-Unless you build `xfce-session` yourself, the panel is already included in the meta package if you install via `pkg_add`.
+Your might encounter trouble on some attempts especially if you install `Thunar`. When `xfce-session` initializes,
+it will always try to start `xfce4-panel`. You can build `Thunar` and remove the panel as dependency. Otherwise,
+the panel will be included when you install it via `pkg_add`.
 
 As a workaround, navigate to Xfce settings manager and create a session wherein the value of `xfce4-panel`'s _Restart Style_ is _Never_.
 If you can see the panel in the Application Autostart, disable or remove it from the entry. Changes will take effect on next login.
