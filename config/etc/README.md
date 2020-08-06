@@ -19,7 +19,7 @@
     \- sets xenodm login background to black.
 
   - [Xsetup_0](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/X11/xenodm/Xsetup_0)
-    \- sets login window apperance to black background with `Hermit` font.
+    \- sets login window background to black and text font style to `Hermit`.
 
 - [dhclient.conf](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/dhclient.conf)
   \- edit to your desired nameserver. Default is 8.8.8.8 (primary), 208.67.222.222 (secondary).
