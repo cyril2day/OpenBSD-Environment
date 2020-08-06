@@ -40,8 +40,8 @@
 2. [hostname.\[re0\]](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/hostname.re0)
    \- replace `re0` with your machine's appropriate ethernet interface.
 
-3. [hostname.\[trunk0\]](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/hostname.trunk0)
+3. [hostname.trunk0](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/hostname.trunk0)
    \- aggregates listed interfaces and implements DHCP
 
-4. [hostname.\[urndis0\]](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/hostname.urndis0)
+4. [hostname.urndis0](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/hostname.urndis0)
    \- create only if you are teethering with an Android phone.
