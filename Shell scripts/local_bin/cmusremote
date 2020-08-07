@@ -3,4 +3,4 @@
 # alias to avoid typing long commands in the shell.
 # synonymous to: `cmus-remote --server [server socket] arg1 arg2 arg3(optional)`
 
-cmus-remote --server /var/run/user/1000/cmus-socket "$1" "$2" "$3"
+cmus-remote --server $XDG_RUNTIME_DIR/cmus-socket "$1" "$2" "$3?"
