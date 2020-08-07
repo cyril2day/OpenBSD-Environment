@@ -45,7 +45,7 @@
   \- set some kernel state for desktop use. My laptop has 16GB of RAM, so scale values accordingly.
 
 - [wsconsctl.conf](https://github.com/cyril2day/OpenBSD-Environment/blob/master/config/etc/wsconsctl.conf)
-  \- set brightness and disable been when logged into the virtual console.
+  \- set brightness and disable beep when logged into the virtual console.
 
 #### If you want to aggregate multiple network interfaces under trunk(4):
 
