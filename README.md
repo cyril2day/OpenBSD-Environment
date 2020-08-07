@@ -40,3 +40,13 @@ You can use my config in `$HOME/.config/xfce4` & `$HOME/.config/autostart` and y
 ## Copyright and license
 
 Copyright 2020 psi <cy.lonsido@gmail.com>. Code is released under [the MIT License](https://github.com/cyril2day/OpenBSD-Environment/blob/master/LICENSE)
+
+## Credits and other references
+
+[Installing OpenBSD on your laptop is really hard(not)](https://sohcahtoa.org.uk/openbsd.html)
+
+[OpenBSD on a Laptop](https://www.c0ffee.net/blog/openbsd-on-a-laptop/)
+\- A guide to a secure and streamlined installation of OpenBSD 6.4 on a laptop.
+
+[trash-cli](https://github.com/andreafrancia/trash-cli.git)
+\- Command line interface to Freedesktop.org
