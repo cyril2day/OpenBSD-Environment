@@ -1,6 +1,7 @@
-### Local shell scripts for easy execution of repetitious commands
+### Local shell scripts for easy execution of repetitious commands.
 
-Note: Scripts below were bound to i3wm config `$HOME/.config/i3/config`.
+Save to `$HOME/.local/bin` and add location to `$PATH`.
+Almost all of the scripts were bound to i3wm config in `$HOME/.config/i3/config`.
 
 - [cleartrash](https://github.com/cyril2day/OpenBSD-Environment/blob/master/Shell%20scripts/local_bin/cleartrash)
   \- invoke an empty-trash request and let the user confirm via dialog. Uses `zenity` for the dialog
