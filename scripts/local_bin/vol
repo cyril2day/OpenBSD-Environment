@@ -11,11 +11,15 @@ calc()
   awk "BEGIN { print "$1" }";
 }
 
-VOL_COMPUTED="$(calc $1/100)"
-INVALID="Accepted values: 0-100"
 
-if [ "$1" -lt 101 ] && [ "$1" -gt -1 ];
+if [ "$1" == "" ];
 then
+    sndioctl output.level
+    exit 1
+elif [ "$1" -lt 101 ] && [ "$1" -gt -1 ];
+then
+  VOL_COMPUTED="$(calc $1/100)"
+  INVALID="Accepted values: 0-100"
   sndioctl output.level=$VOL_COMPUTED
 else
   echo $INVALID
