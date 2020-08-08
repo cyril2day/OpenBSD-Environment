@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# set volume conveniently using values between 0-100.
+# usage: vol <num>
+# alias to `sndioctl outputl.level=<value>`
+# values < 0 and > 100 is invalid
+
+
+calc()
+{ 
+  awk "BEGIN { print "$1" }";
+}
+
+VOL_COMPUTED="$(calc $1/100)"
+INVALID="Accepted values: 0-100"
+
+if [ "$1" -lt 101 ] && [ "$1" -gt -1 ];
+then
+  sndioctl output.level=$VOL_COMPUTED
+else
+  echo $INVALID
+fi
