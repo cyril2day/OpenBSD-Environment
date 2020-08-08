@@ -28,6 +28,9 @@ Note: Scripts below were bound to i3wm config `$HOME/.config/i3/config`.
 - [switch-sound-device](https://github.com/cyril2day/OpenBSD-Environment/blob/master/Shell%20scripts/local_bin/switch-sound-device)
   \- toggle between built-in and alternate sound devices. This, if you have external sound device connected (e.g. USB speaker)
 
+- [vol](https://github.com/cyril2day/OpenBSD-Environment/blob/master/Shell%20scripts/local_bin/vol)
+  \- set sndio volume via `vol <num>` where `num` is a number between 0-100
+
 ### Optional:
 
 - [libreoffice-calc](https://github.com/cyril2day/OpenBSD-Environment/blob/master/Shell%20scripts/local_bin/libreoffice-calc)
