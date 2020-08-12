@@ -13,17 +13,11 @@
 # the audio is toggled back.
 
 
-export HOME=$HOME
-
-VOL_FILE="$HOME/.currentvol"
-SAVED_VOL="$( cat "$VOL_FILE" )"
-CURRENT_VOL="$( sndioctl output.level | awk -F '[^0-9]+' '{printf("%d", $3)}' )"
-RESTORE_VOL="0.$SAVED_VOL"
+IF_MUTED="$(sndioctl -n output.mute)"
 
 
-if [ "$CURRENT_VOL" -gt 0 ];then
-  sndioctl output.level | awk -F '[^0-9]+' '{print $3}' | cat > "$VOL_FILE"
-  sndioctl output.level=0
+if [ "$IF_MUTED" -eq 0 ];then
+  notify-send "sndio" "Sound has been restored"
 else
-  sndioctl output.level="$RESTORE_VOL"
+  notify-send "sndio" "Your sound is now muted"
 fi
