@@ -1,3 +1,15 @@
 #!/bin/sh
 
+export DISPLAY=$DISPLAY
+
+# exclude illegal characters, only valid numbers
+DISP="$( echo $DISPLAY | awk '{printf("%0.1f", $1)}')"
+
 sndioctl output.level=+0.03
+CURRENT_VOL="$(sndioctl -n output.level | awk '{printf("%0.2f", $1 * 100)}')"
+
+# won't execute when called inside an ssh session
+if [ $DISP = 0.0 ];
+then
+  notify-send "sndio" "volume increased to "$CURRENT_VOL" "
+fi
