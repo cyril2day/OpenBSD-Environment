@@ -3,13 +3,31 @@
 export DISPLAY=$DISPLAY
 
 # exclude illegal characters, only valid numbers
-DISP="$( echo $DISPLAY | awk '{printf("%0.1f", $1)}')"
+DISP="$( echo "$DISPLAY" | awk '{printf("%0.1f", $1)}')"
+
+gdbus call --session\
+          --session \
+          --dest org.freedesktop.Notifications \
+          --object-path /org/freedesktop/Notifications \
+          --method org.freedesktop.Notifications.CloseNotification \
+          "$(cat /tmp/notify_id)"
 
 sndioctl output.level=-0.03
 CURRENT_VOL="$(sndioctl -n output.level | awk '{printf("%0.2f", $1 * 100)}')"
 
 # won't execute when called inside an ssh session
-if [ $DISP = 0.0 ];
+if [ "$DISP" = 0.0 ];
 then
-  notify-send "sndio" "volume increased to "$CURRENT_VOL" "
+  gdbus call --session \
+              --dest org.freedesktop.Notifications \
+              --object-path /org/freedesktop/Notifications \
+              --method org.freedesktop.Notifications.Notify \
+                my_app_name \
+                42 \
+                audio-volume-low \
+                "sndio" \
+                "volume now decreased to $CURRENT_VOL" \
+                [] \
+                {} \
+                30 | awk '{printf("%d", $2)}' | cat > /tmp/notify_id
 fi
