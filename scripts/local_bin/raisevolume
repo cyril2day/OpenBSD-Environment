@@ -12,6 +12,11 @@ gdbus call --session\
           --method org.freedesktop.Notifications.CloseNotification \
           "$(cat /tmp/notify_id)"
 
+if [ "$(sndioctl -n output.mute)" -eq 1 ];
+then
+  sndioctl output.mute=0
+fi
+
 sndioctl output.level=+0.03
 CURRENT_VOL="$(sndioctl -n output.level | awk '{printf("%0.2f", $1 * 100)}')"
 

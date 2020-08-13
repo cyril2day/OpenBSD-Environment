@@ -15,9 +15,30 @@
 
 IF_MUTED="$(sndioctl -n output.mute)"
 
+gdbus call --session\
+          --session \
+          --dest org.freedesktop.Notifications \
+          --object-path /org/freedesktop/Notifications \
+          --method org.freedesktop.Notifications.CloseNotification \
+          "$(cat /tmp/notify_id)"
 
 if [ "$IF_MUTED" -eq 0 ];then
-  notify-send "sndio" "Sound has been restored"
+  MESSAGE="Sound has been restored"
+  ICON="audio-volume-high"
 else
-  notify-send "sndio" "Your sound is now muted"
+  MESSAGE="Your sound is now muted"
+  ICON="audio-volume-muted"
 fi
+
+gdbus call --session \
+            --dest org.freedesktop.Notifications \
+            --object-path /org/freedesktop/Notifications \
+            --method org.freedesktop.Notifications.Notify \
+              my_app_name \
+              42 \
+              "$ICON" \
+              "sndio" \
+              "$MESSAGE" \
+              [] \
+              {} \
+              30 | awk '{printf("%d", $2)}' | cat > /tmp/notify_id
