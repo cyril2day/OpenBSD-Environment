@@ -12,13 +12,13 @@ Almost all of the scripts were bound to i3wm config in `$HOME/.config/i3/config`
   keys and remote ssh connection. Accepts up to 3 args with the 3rd being optional.
 
 - [lowervolume](https://github.com/cyril2day/OpenBSD-Environment/blob/master/scripts/local_bin/lowervolume)
-  \- control sndio to decrease volume by 3 units.
+  \- control sndio to decrease volume by 3 units. Added hooks for `notifyd`.
 
 - [raisevolume](https://github.com/cyril2day/OpenBSD-Environment/blob/master/scripts/local_bin/raisevolume)
-  \- control sndio to increase volume by 3 units.
+  \- control sndio to increase volume by 3 units. Added hooks for `notifyd`.
 
 - [mutetoggle](https://github.com/cyril2day/OpenBSD-Environment/blob/master/scripts/local_bin/mutetoggle)
-  \- toggle sound for multimedia key binding. Current sound level will be saved to \$HOME/.currentvol file.
+  \- toggle sound muting and for use in multimedia key binding. `Notifyd` informs the user of the event.
 
 - [power-mode](https://github.com/cyril2day/OpenBSD-Environment/blob/master/scripts/local_bin/power-mode)
   \- toggle to switch between automatic and manual performance adjustment mode.
