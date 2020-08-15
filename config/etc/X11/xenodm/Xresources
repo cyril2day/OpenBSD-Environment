@@ -7,7 +7,7 @@
 xlogin.Login.echoPasswd:       true
 xlogin.Login.fail:             fail
 xlogin.Login.greeting:
-xlogin.Login.namePrompt:       \040login\040
+xlogin.Login.namePrompt:       \040\040\040login\040
 xlogin.Login.passwdPrompt:     password\040
 
 xlogin.Login.height:           220
@@ -22,6 +22,6 @@ xlogin.Login.failColor:        white
 xlogin.Login.inpColor:         black
 xlogin.Login.promptColor:      #eeeeec
 
-xlogin.Login.face:             hermit-24
-xlogin.Login.failFace:         hermit-24
-xlogin.Login.promptFace:       hermit-24
+xlogin.Login.face:             hermit-23
+xlogin.Login.failFace:         hermit-23
+xlogin.Login.promptFace:       hermit-23
