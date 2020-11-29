@@ -1,24 +1,26 @@
-$OpenBSD: patch-config_def_h,v 1.11 2019/02/10 21:55:24 feinerer Exp $
+$OpenBSD: patch-config_def_h,v 1.13 2020/06/29 14:36:10 mestre Exp $
 Index: config.def.h
 --- config.def.h.orig
 +++ config.def.h
 @@ -8 +8 @@ static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
 - static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
 + static char *font = "SF Mono:Medium:pixelsize=12:antialias=true:autohint=true";
-@@ -27 +27 @@ static float cwscale = 1.0;
+@@ -29,1 +29,1 @@ static float cwscale = 1.0;
 - static float cwscale = 1.0;
 + static float cwscale = 1.0;
+@@ -30 +30 @@ static float chscale = 1.0;
 - static float chscale = 1.0;
 + static float chscale = 1.0;
-@@ -88,7 +88,7 @@ static const char *colorname[] = {
+@@ -99,4 +99,4 @@ "black",
 -	"black",
-+	"#191919", /* hard contrast: #1d2021 / soft contrast: #32302f */
++	"#191919",
 -	"red3",
 +	"#ff355b",
 -	"green3",
 +	"#b7e876",
 -	"yellow3",
 +	"#ffc251",
+@@ -103,4 +103,4 @@ "blue2",
 -	"blue2",
 +	"#76d4ff",
 -	"magenta3",
@@ -27,8 +29,7 @@ Index: config.def.h
 +	"#6cbfb5",
 -	"gray90",
 +	"#c2c8d7",
-
- 	/* 8 bright colors */
+@@ -109,4 +109,4 @@ "gray50",
 -	"gray50",
 +	"#191919",
 -	"red",
@@ -37,6 +38,7 @@ Index: config.def.h
 +	"#b7e876",
 -	"yellow",
 +	"#ffc251",
+@@ -113,4 +114,4 @@ "#5c5cff",
 -	"#5c5cff",
 +	"#76d5ff",
 -	"magenta",
@@ -45,7 +47,6 @@ Index: config.def.h
 +	"#6cbfb5",
 -	"white",
 +	"#c2c8d7",
-
-@@ -131 +131 @@ static unsigned int cursorshape = 2;
+@@ -142 +142 @@ static unsigned int cursorshape = 2;
 - static unsigned int cursorshape = 2;
 + static unsigned int cursorshape = 4;
